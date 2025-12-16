@@ -1,21 +1,25 @@
+
+
 <a routerLink="/add">Add Employee</a>
 
-<table border="1" cellpadding="5">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Department</th>
-    <th>Salary</th>
-    <th>Actions</th>
-  </tr>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
 
-  <tr *ngFor="let emp of employees">
-    <td>{{ emp.name }}</td>
-    <td>{{ emp.email }}</td>
-    <td>{{ emp.department }}</td>
-    <td>{{ emp.salary }}</td>
-    <td>
-      <a [routerLink]="['/edit', emp.id]">Edit</a>
-    </td>
-  </tr>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{ emp.firstName }} {{ emp.lastName }}</td>
+      <td>{{ emp.email }}</td>
+      <td>{{ emp.department }}</td>
+      <td>
+        <a [routerLink]="['/edit', emp.employeeId]">Edit</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
