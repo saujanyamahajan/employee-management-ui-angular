@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root' //Dependency Injection (DI)-Allows Angular to inject other services into it
 })
 export class EmployeeService {
-    private apiUrl = 'http://localhost:5244/swagger/index.html';
+    private apiUrl = 'http://localhost:5244/api/Employee';
     constructor(private http: HttpClient) {} //class property called http - injected HttpClient instance to it
   // GET: api/employee 
     getAll(): Observable<Employee[]> {
