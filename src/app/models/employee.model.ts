@@ -1,7 +1,11 @@
 export interface Employee {
-  id: number;
-  name: string;
+ employeeId: number;
+  firstName: string;
+  lastName: string;
   email: string;
+  phone?: string;
   department: string;
-  salary: number;
+  designation?: string;
+  dateOfJoining?: string;
+  isActive?: boolean;
 }
