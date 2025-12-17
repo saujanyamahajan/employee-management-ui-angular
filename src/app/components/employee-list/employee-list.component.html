@@ -1,25 +1,60 @@
+<div class="employees-page">
 
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>Employees</h1>
+      <p>{{ employees.length }} total employees</p>
+    </div>
 
-<a routerLink="/add">Add Employee</a>
+    <a routerLink="/add" class="add-btn">+ Add Employee</a>
+  </div>
 
-<table border="1" cellpadding="8">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Department</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
+  <!-- Search -->
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search employees by name, email, department, or role..."
+    />
+  </div>
 
-  <tbody>
-    <tr *ngFor="let emp of employees">
-      <td>{{ emp.firstName }} {{ emp.lastName }}</td>
-      <td>{{ emp.email }}</td>
-      <td>{{ emp.department }}</td>
-      <td>
-        <a [routerLink]="['/edit', emp.employeeId]">Edit</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <!-- Cards -->
+  <div class="employee-container">
+    <div class="employee-card" *ngFor="let emp of employees">
+
+      <!-- Card Header -->
+      <div class="card-header">
+        <div class="avatar">
+          {{ emp.firstName.charAt(0) }}{{ emp.lastName.charAt(0) }}
+        </div>
+
+        <div class="header-info">
+          <h3>{{ emp.firstName }} {{ emp.lastName }}</h3>
+          <p>{{ emp.designation }}</p>
+        </div>
+
+        <span class="menu">⋮</span>
+      </div>
+
+      <!-- Info -->
+      <div class="contact">
+        <p>✉️ {{ emp.email }}</p>
+        <p *ngIf="emp.phone">📞 {{ emp.phone }}</p>
+      </div>
+
+      <!-- Footer -->
+      <div class="card-footer">
+        <span class="department">{{ emp.department }}</span>
+
+        <span
+          class="status"
+          [ngClass]="emp.isActive ? 'active' : 'inactive'"
+        >
+          {{ emp.isActive ? 'Active' : 'Inactive' }}
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
